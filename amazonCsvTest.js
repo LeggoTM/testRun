@@ -30,11 +30,12 @@ test('Login in Amazon', async t => {
             .pressKey('enter')
             .expect(Selector('h1 div>span').nth(2).innerText).contains(item.searchItem)
 
-        const itemSearchCount = await Selector('div[data-component-type="s-search-result"] h2 a span').count; //Count of items in search result
+        //Count of items in search result
+        const itemSearchCount = await Selector('div[data-component-type="s-search-result"] h2 a span').count;
         console.log("List for " + item.searchItem + " " + itemSearchCount);
 
-    //Loop through the search result items
-    for (let i = 0; i < itemSearchCount; i++) {
+        //Loop through the search result items
+        for (let i = 0; i < itemSearchCount; i++) {
             const itemText = await Selector('div[data-component-type="s-search-result"] h2 a span').nth(i).innerText;
             const lowerCaseItems = itemText.toLowerCase();
 
@@ -42,7 +43,7 @@ test('Login in Amazon', async t => {
                 console.log(`Found for Item No. ${i + 1}`);
             }
             else {
-                console.log(`not found for Item No. ${i + 1}`);
+                console.log(`Not found for Item No. ${i + 1}`);
             }
         }
     }
