@@ -33,8 +33,8 @@ test('Login in Amazon', async t => {
         const itemSearchCount = await Selector('div[data-component-type="s-search-result"] h2 a span').count; //Count of items in search result
         console.log("List for " + item.searchItem + " " + itemSearchCount);
 
-        //Loop through the search result items
-        for (let i = 0; i < itemSearchCount; i++) {
+    //Loop through the search result items
+    for (let i = 0; i < itemSearchCount; i++) {
             const itemText = await Selector('div[data-component-type="s-search-result"] h2 a span').nth(i).innerText;
             const lowerCaseItems = itemText.toLowerCase();
 
