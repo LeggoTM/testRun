@@ -23,7 +23,7 @@ test('Login in Amazon', async t => {
     await t
         .expect(Selector('span').withText('Hello, Testcafe').visible).ok()
 
-    //Loop through the items in csv
+    //Loop through the items in csv file
     for (const item of itemData.data) {
         await t
             .typeText(Selector('input#twotabsearchtextbox'), item.searchItem, { replace: true })
